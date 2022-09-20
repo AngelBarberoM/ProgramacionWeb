@@ -1,0 +1,37 @@
+1660043375577	Rename type 'FechasDTO'
+1660043389247	Rename type 'PasesDTO'
+1660043407242	Rename package 'GeneralDTOs'
+1660043424840	Rename type 'UserDTO'
+1660043438885	Rename type 'VotantesCriticaDTO'
+1660065416776	Rename type 'CriticasView'
+1660065433209	Rename type 'EspectaculosView'
+1660065459780	Rename type 'UsuariosView'
+1660065485622	Rename type 'LoginView'
+1660074487070	Rename type 'UserDAO'
+1660074525465	Rename type 'UserManager'
+1660074535657	Rename type 'EspectaculoManager'
+1660074546867	Rename type 'CriticaManager'
+1660074861270	Rename type 'UsusarioMG'
+1660074958153	Rename type 'PersonaDTO'
+1660124100919	Rename package 'business.managers'
+1660124138408	Rename package 'data.DAOs'
+1660124179021	Rename package 'display.views'
+1660158647443	Rename type 'Main'
+1660158669067	Rename package 'display'
+1660158707082	Rename package 'data.common'
+1660158723775	Rename type 'DBConnection'
+1660239280092	Move source folder
+1660239297955	Move source folder
+1660240051367	Move package
+1660240062008	Copy package
+1660240070992	Copy package
+1660240082075	Copy packages
+1660240368577	Copy source folder
+1660241873617	Copy compilation units
+1660241908088	Copy compilation units
+1660241942247	Copy compilation units
+1660241951627	Copy compilation unit
+1660241960201	Copy compilation unit
+1660241969084	Copy compilation units
+1660241977146	Copy compilation units
+1660242059089	Copy files

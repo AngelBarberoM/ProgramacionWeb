@@ -1,0 +1,56 @@
+package MenuPrincipal;
+import java.io.IOException;
+import java.util.Scanner;
+import MenusSecundarios.*;
+
+
+public class MainMenu {
+	
+	public static void main(String args[]) throws IOException{
+	
+		MenuSesion login = new MenuSesion();
+		String correo = login.inicioSesionMenu();
+		String opc="0";
+	   	Scanner reader = new Scanner(System.in);
+		if(!correo.equals(""))
+		{
+			while(opc.equals("1") || opc.equals("2") || opc.equals("3") && (!correo.equals(""))) 
+			{
+				System.out.println("Bienvenido a nuestro sistema.");
+			   	System.out.println("Para ir a gestion de usuario, pulse 1.");
+			   	System.out.println("Para ir a gestion de criticas, pulse 2.");
+			   	System.out.println("Para ir a gestion de espectaculos, pulse 3.");
+			   	System.out.println("Para salir del menu, pulse cualquier otra tecla."); 
+			   	
+			   	if(reader.hasNextLine())
+			   	{
+			   		opc = reader.nextLine();
+			   	}
+
+				if("1".equals(opc)) 
+				{ 
+					MenuUsuario userView = new MenuUsuario(correo);
+					userView.usuarioMenu();
+				}
+				else if("2".equals(opc))
+				{ 
+					MenuCritica criticasView = new MenuCritica(correo);
+					criticasView.CriticasMenu();
+				}
+				else if("3".equals(opc))
+				{ 
+					MenuEspectaculo espView = new MenuEspectaculo(correo);
+					espView.EspectaculoMenu();
+				}
+				else 
+				{
+					System.out.println("Gracias por usar nuestro sistema.");
+					System.out.println("Saliendo. . .");
+					break;
+				}
+			}
+			reader.close(); 
+		}
+		
+	}
+}

@@ -1,0 +1,117 @@
+/*USUARIO*/
+crearNuevoUsuario = INSERT INTO Usuarios (correo, contrasena, nombre, nombreUsuario, tipoUsuario, horaRegistro, ultimaConexion) VALUES ('varcorreo', 'varcontrasena', 'varnombre', 'varnombreusuario', 'vartipousuario', 'varhoraregistro', 'varultimaconexion')
+solicitarInfoCorreoUsuario = SELECT nombre, nombreUsuario, correo, tipoUsuario, horaRegistro, ultimaConexion FROM Usuarios WHERE correo = 'varcorreo'
+solicitarInfoNombreUsuario = SELECT nombre, nombreUsuario, correo, tipoUsuario, horaRegistro, ultimaConexion FROM Usuarios WHERE nombreUsuario = 'varnombreusuario'
+actualizarUsuario = UPDATE Usuarios EspectaculoTemporada correo = 'varcorreo', contrasena = 'varcontrasena', nombre ='varnombre', nombreUsuario ='varnombreusuario' WHERE correo ='varcorreo'
+eliminarUsuario = DELETE FROM Usuarios WHERE correo='varcorreo'
+actualizarHoraConexion = UPDATE Usaurios EspectaculoTemporada ultimaConexion = 'varultimaconexion' WHERE correo = 'varcorreo'
+
+
+crearCritica = INSERT INTO Criticas (id, puntuacion, titulo, resena, correo, like, dislike, idEspectaculo ) VALUES ('varid', 'varpuntuacion', 'vartitulo', 'varresena', 'varcorreo', 0, 0, 'varidEspectaculo')
+solicitarInfoCritica = SELECT id, puntuacion, titulo, resena, correo, like, dislike, idEspectaculo FROM Criticas WHERE id = 'varid'
+actualizarCritica = UPDATE Criticas EspectaculoTemporada titulo = 'vartitulo', resena = 'varresena', like = 'varlike', dislike='vardislike' WHERE id = 'varid'
+eliminarCritica = DELETE FROM Criticas WHERE id = 'varid'
+eliminarCriticaEspectaculo = DELETE FROM Criticas WHERE idEspectaculo = 'varidEspectaculo'
+
+
+crearVotantes = INSERT INTO VotantesCriticas (correo, id, voto, idVotantes ) VALUES ('varcorreo', 'varid', 'varvoto', 'varidvotantes')
+solicitarInfoVotantes = SELECT correo, id, voto FROM VotantesCriticas WHERE id = 'varid'
+actualizarVotantes = UPDATE VotantesCriticas EspectaculoTemporada correo = 'varcorreo', id = 'varid', voto = 'varvoto' WHERE id = 'varid'
+eliminarVotantes = DELETE FROM VotantesCriticas WHERE id = 'varid'
+eliminarUsuarioVotantes = DELETE FROM VotantesCriticas WHERE id = 'varid' AND correo = 'varcorreo'
+
+
+crearEspectaculoPuntual = INSERT INTO EspectaculoPuntual (id, titulo, contenido, localidadesTotales, localidadesVendidas, fecha, tipo) VALUES ('varid', 'vartitulo', 'varcontenido', 'varlocalidadestotales', 'varlocalidadesvendidas', 'varfecha','vartipo')
+solicitarInfoEspectaculoPuntual = SELECT id, titulo, contenido, localidadesTotales, localidadesVendidas, fecha, tipo FROM EspectaculoPuntual WHERE id = 'varid'
+actualizarEspectaculoPuntual = UPDATE EspectaculoPuntual EspectaculoTemporada titulo = 'vartitulo', contenido = 'varcontenido', localidadesTotales = 'varlocalidadestotales', localidadesVendidas = 'varlocalidadesvendidas', fecha = 'varfecha', tipo = 'vartipo' WHERE id = 'varid'
+eliminarEspectaculoPuntual = DELETE FROM EspectaculoPuntual WHERE id = 'varid'
+
+
+crearEspectaculoPaseMultiple = INSERT INTO EspectaculoPaseMultiple (id, titulo, contenido, localidadesTotales, localidadesVendidas,tipo) VALUES ('varid', 'vartitulo', 'varcontenido', 'varlocalidadestotales', 'varlocalidadesvendidas', 'vartipo')
+solicitarInfoEspectaculoPaseMultiple = SELECT id, titulo, contenido, localidadesTotales, localidadesVendidas, tipo FROM EspectaculoPaseMultiple WHERE id = 'varid'
+solicitarFechasEspectaculoPaseMultiple = SELECT fecha FROM Fechas WHERE id = (SELECT idFechas FROM MultipleFechas WHERE id = 'varid'); # varid == Id del Espectaculo
+actualizarEspectaculoPaseMultiple = UPDATE EspectaculoPaseMultiple EspectaculoTemporada titulo = 'vartitulo', contenido = 'varcontenido', localidadesTotales = 'varlocalidadestotales', localidadesVendidas = 'varlocalidadesvendidas', tipo = 'vartipo' WHERE id = 'varid'
+eliminarEspectaculoPaseMultiple = DELETE FROM EspectaculoPaseMultiple WHERE id = 'varid'
+
+
+crearMultiplesFecha = INSERT INTO MultiplesFechas (id, idFechas) VALUES ('varid', 'varidfechas')
+solicitarInfoMultiplesFechaAdmin = SELECT id,idFechas FROM MultipleFechas WHERE idFechas = 'varidfecha'
+eliminarMultiplesFecha = DELETE FROM MultipleFechas WHERE idFechas = 'varidfecha'
+
+crearFecha = INSERT INTO Fechas (id, fecha) VALUES ('varid', 'varfecha') 
+solicitarInfoFechaAdmin = SELECT id, fecha FROM Fechas WHERE id = 'varid'
+eliminarFecha = DELETE FROM Fechas WHERE id = 'varid'
+
+
+solicitarFechasEspectaculoPaseMultiple = SELECT id, fecha FROM Fechas WHERE id IN (SELECT idFechas FROM MultipleFechas WHERE id = 'varid')
+eliminarFechaEspectaculo = DELETE FROM Fechas WHERE id =  (SELECT idFechas FROM MultipleFechas WHERE id = 'varid')
+
+
+crearEspectaculoTemporada = INSERT INTO EspectaculoTemporada (id, titulo, contenido, localidadesTotales, localidadesVendidas, tipo ) VALUES ('varid', 'vartitulo', 'varcontenido', 'varlocalidadestotales', 'varlocalidadesvendidas', 'vartipo')
+solicitarInfoEspectaculoTemporada = SELECT id, titulo, contenido, localidadesTotales, localidadesVendidas, idPase, tipo FROM EspectaculoTemporada WHERE id = 'varid'
+actualizarEspectaculoTemporada = UPDATE EspectaculoTemporada EspectaculoTemporada titulo = 'vartitulo', contenido = 'varcontenido', localidadesTotales = 'varlocalidadestotales', localidadesVendidas = 'varlocalidadesvendidas', tipo = 'vartipo' WHERE id = 'varid'
+eliminarEspectaculoTemporada = DELETE FROM EspectaculoTemporada WHERE id = 'varid'
+
+
+crearMultiplesPases = INSERT INTO PasesTemporada (id, idPase) VALUES ('varid', 'varidpase')
+solicitarInfoMultiplesPasesAdmin = SELECT id, idPase FROM PasesTemporada WHERE idPase = 'varidpase'
+eliminarMultiplesPases = DELETE FROM PasesTemporada WHERE id = 'varidpase'
+
+crearPases = INSERT INTO Pases (id, inicioFecha, diasS,finalFecha) VALUES ('varid', 'variniciofecha', 'vardiass','varfinalfecha')
+solicitarInfoPases = SELECT id, inicioFecha, diasS, finalFecha FROM Pases WHERE id = 'varid'
+eliminarPase = DELETE FROM Pases WHERE id = 'varid'
+
+
+solicitarPasesEspectaculoTemporada = SELECT id, inicioFecha, diasS, finalFecha FROM Pases WHERE id IN (SELECT idPase FROM PasesTemporada WHERE id = 'varid')
+
+
+solicitarTodosUsuarios = SELECT correo, nombre, nombreUsuario, tipoUsuario FROM Usuarios
+solicitarTodasCriticas = SELECT id, puntuacion, titulo, resena, correo, like, dislike, idEspectaculo FROM Criticas
+solicitarTodasCriticasUser = SELECT id, puntuacion, titulo, resena, like, dislike, idEspectaculo FROM Criticas WHERE correo='varcorreo'
+solicitarTodosVotantes = SELECT correo, id, voto FROM VotantesCriticas
+solicitarTodosEspectaculoPuntual = SELECT id, titulo, contenido, localidadesTotales, localidadesVendidas, fecha, tipo FROM EspectaculoPuntual
+solicitarTodosEspectaculoPaseMultiple = SELECT id, titulo, contenido, localidadesTotales, localidadesVendidas,  tipo FROM EspectaculoPaseMultiple
+solicitarTodasFechas = SELECT id,fecha FROM Fechas
+solicitarTodosMultipleFechas = SELECT id, idFechas FROM MultipleFechas
+solicitarTodosEspectaculoTemporada = SELECT id, titulo, contenido, localidadesTotales, localidadesVendidas, tipo FROM EspectaculoTemporada
+solicitarTodosPases = SELECT id, inicioFecha, diasS,finalFecha FROM Pases
+solicitarTodosPasesTemporada = SELECT id, idPase FROM PasesTemporada
+
+existeIdCriticas = SELECT id FROM Criticas
+existeIdEspectaculoPuntual = SELECT id FROM EspectaculoPuntual
+existeIdEspectaculoPaseMultiple = SELECT id FROM EspectaculoPaseMultiple
+existeIdEspectaculoTemporada = SELECT id FROM EspectaculoTemporada
+existeIdVotantes = SELECT idVotantes FROM VotantesCriticas
+
+
+existeIdFecha = SELECT id FROM Fechas
+existeIdMultiplesFechas = SELECT id FROM MultipleFechas
+existeIdPases = SELECT id FROM Pases
+existePasesTemporada = SELECT id FROM PasesTemporada
+
+
+solicitarTodasCriticasP = SELECT id, puntuacion, titulo, resena, correo, like, dislike, idEspectaculo FROM Criticas WHERE NOT correo = 'varcorreo'
+solicitarAutores = SELECT DISTINCT correo FROM Criticas
+eliminarFecha = DELETE FROM Fechas WHERE id =  (SELECT idFechas FROM MultipleFecha WHERE id = 'varid')
+eliminarMultiplesFecha2 = DELETE FROM MultipleFechas WHERE id = 'varid'
+
+
+eliminarPases = DELETE FROM Pases WHERE id =  (SELECT idPase FROM PasesTemporada WHERE id = 'varid')
+eliminarMultiplesPases2 = DELETE FROM PasesTemporada WHERE id = 'varid'
+
+
+actualizarFecha = UPDATE Fechas EspectaculoTemporada fecha ='varfecha'WHERE id = 'varid'
+
+
+solicitarContrasena = SELECT contrasena FROM Usuarios WHERE correo = 'varcorreo'
+
+
+solicitarTituloEspectaculo = SELECT titulo FROM EspectaculoPuntual WHERE id = 'varid' UNION SELECT titulo FROM EspectaculoPaseMultiple WHERE id = 'varid' UNION SELECT titulo FROM EspectaculoTemporada  WHERE id = 'varid'
+
+
+solicitarInfoEspectaculoPuntualP = SELECT id, tipo, titulo, contenido, localidadesTotales, localidadesVendidas FROM EspectaculoPuntual WHERE fecha <='varfechahoy'
+solicitarInfoEspectaculoPaseMultipleP = SELECT id, titulo, tipo, contenido, localidadesTotales, localidadesVendidas FROM EspectaculoPaseMultiple WHERE id IN (SELECT id FROM MultipleFechas WHERE idFechas IN (SELECT Fechas.id FROM Fechas WHERE fecha <= 'varfecha' ))
+solicitarInfoEspectaculoTemporadaP = SELECT id, titulo, tipo, contenido, localidadesTotales, localidadesVendidas FROM EspectaculoTemporada WHERE id IN(SELECT id FROM PasesTemporada WHERE idPase IN (SELECT Pases.id FROM Pases WHERE inicioFecha <= 'varfecha' )) 
+
+
+solicitarPorTipo = SELECT correo, nombre, nombreUsuario FROM Usuarios WHERE tipoUsuario = 'vartipousuario'

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="SmartImportWizard">
+		<item key="SmartImportRootWizardPage.STORE_HIDE_ALREADY_OPEN" value="false"/>
+		<item key="SmartImportRootWizardPage.STORE_CLOSE_IMPORTED" value="false"/>
+		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
+		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
+		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+			<item value="C:\Users\Ángel Barbero\eclipse-workspace\Practica3"/>
+			<item value="C:\Users\Ángel Barbero\OneDrive\Escritorio\PW-3"/>
+			<item value="C:\Users\Ángel Barbero\eclipse-workspace\PW-3"/>
+			<item value="C:\Users\Ángel Barbero\eclipse-workspace\PW-2.2"/>
+			<item value="C:\Users\Ángel Barbero\eclipse-workspace\PW-1.1"/>
+			<item value="C:\Users\Ángel Barbero\OneDrive\Escritorio\PW-ZIP\PW-project-main- Mario Berrios"/>
+			<item value="C:\Users\Ángel Barbero\OneDrive\Escritorio\PW-ZIP\PW-Practices-master- Jesús Arjona\P3"/>
+			<item value="C:\Users\Ángel Barbero\OneDrive\Escritorio\PW\Practica 2"/>
+			<item value="C:\Users\Ángel Barbero\OneDrive\Escritorio\PW\Practica 2\Ejercicio2"/>
+			<item value="C:\Users\Ángel Barbero\OneDrive\Escritorio\PW-Practices-master- Jesús Arjona\P2\P2\P2-E2"/>
+			<item value="C:\Users\Ángel Barbero\OneDrive\Escritorio\PW-main Marcos Rivera\P2\E2"/>
+			<item value="C:\Users\Ángel Barbero\OneDrive\Escritorio\PW-main Marcos Rivera\P2\E1"/>
+			<item value="C:\Users\Ángel Barbero\eclipse-workspace\Practica2"/>
+			<item value="C:\Users\Ángel Barbero\OneDrive\Escritorio\PW-ZIP\PW-Practices-master- Jesús Arjona\P2"/>
+			<item value="C:\Users\Ángel Barbero\eclipse-workspace\PW-2.1"/>
+			<item value="C:\Users\Ángel Barbero\eclipse-workspace\PW2"/>
+			<item value="C:\Users\Ángel Barbero\eclipse-workspace\PW-2"/>
+			<item value="C:\Users\Ángel Barbero\OneDrive\Escritorio\PW-Practices-master- Jesús Arjona\P2\P2\P2-E1"/>
+			<item value="C:\Users\Ángel Barbero\OneDrive\Escritorio\PW-Practices-master- Jesús Arjona\P2"/>
+			<item value="C:\Users\Ángel Barbero\OneDrive\Escritorio\PW-Practices-master- Jesús Arjona\P2-j"/>
+			<item value="C:\Users\Ángel Barbero\OneDrive\Escritorio\PW-main Marcos Rivera\P2"/>
+			<item value="C:\Users\Ángel Barbero\OneDrive\Escritorio\PW-Practices-master- Jesús Arjona\P2\P2"/>
+			<item value="C:\Users\Ángel Barbero\eclipse-workspace\PW-1.2"/>
+			<item value="C:\Users\Ángel Barbero\OneDrive\Escritorio\PW-Practices-master- Jesús Arjona\P1\P1-E2"/>
+			<item value="C:\Users\Ángel Barbero\OneDrive\Escritorio\PW-main Marcos Rivera\P1"/>
+			<item value="C:\Users\Ángel Barbero\OneDrive\Escritorio\PW-Practices-master- Jesús Arjona\P1\P1-E1"/>
+		</list>
+	</section>
+	<section name="NewWizardAction">
+	</section>
+	<section name="SaveAsDialogSettings">
+		<item key="DIALOG_X_ORIGIN" value="572"/>
+		<item key="DIALOG_Y_ORIGIN" value="24"/>
+		<item key="DIALOG_WIDTH" value="525"/>
+		<item key="DIALOG_HEIGHT" value="580"/>
+		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
+	</section>
+	<section name="org.eclipse.ui.dialogs.FilteredResourcesSelectionDialog">
+		<item key="ShowStatusLine" value="true"/>
+		<item key="History" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#x0D;&#x0A;&lt;History&gt;&#x0D;&#x0A;&lt;historyRootNode/&gt;&#x0D;&#x0A;&lt;/History&gt;"/>
+		<item key="ShowDerived" value="false"/>
+		<item key="FilterByLocation" value="false"/>
+		<item key="WorkingSet" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#x0D;&#x0A;&lt;workingSet workingSetName=&quot;&quot;/&gt;"/>
+		<section name="DialogBoundsSettings">
+			<item key="DIALOG_HEIGHT" value="500"/>
+			<item key="DIALOG_WIDTH" value="600"/>
+			<item key="DIALOG_X_ORIGIN" value="391"/>
+			<item key="DIALOG_Y_ORIGIN" value="39"/>
+			<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
+		</section>
+	</section>
+	<section name="CleanDialogSettings">
+		<item key="BUILD_NOW" value="true"/>
+		<item key="BUILD_ALL" value="true"/>
+		<item key="TOGGLE_SELECTED" value="false"/>
+		<item key="DIALOG_WIDTH" value="500"/>
+		<item key="DIALOG_HEIGHT" value="467"/>
+		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
+	</section>
+</section>

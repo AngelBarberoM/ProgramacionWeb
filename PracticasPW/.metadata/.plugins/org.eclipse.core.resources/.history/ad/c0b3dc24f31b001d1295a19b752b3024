@@ -1,0 +1,266 @@
+package GeneralDAO;
+
+import java.io.FileInputStream;
+import java.io.InputStream;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.Properties;
+
+import GeneralDTO.UsuarioDTO;
+import ConexDB.DBConexion;
+
+public class UsuarioDAO {
+
+	private String RutaSQL ="C:\\Users\\jesus\\workspace-eclipse-luna\\P2-E2\\src\\main\\webapp\\WEB-INF\\sql.properties";
+	//private java.io.InputStream input;
+	private String url;
+	private String usuario;
+	private String contrasena;
+	
+	public UsuarioDAO(/*java.io.InputStream myIO,*/ String url, String usuario, String contrasena){
+		
+		this.url = url;
+		this.usuario = usuario;
+		this.contrasena = contrasena;
+	}
+
+	public void createUser(UsuarioDTO nuevoUsuario) {
+		
+		DBConexion dbConnection = new DBConexion(this.url, this.usuario, this.contrasena);
+		Connection connection = dbConnection.getConnection();
+		
+		try(InputStream input = new FileInputStream(RutaSQL)){
+			
+			Properties prop = new Properties();
+			prop.load(input);
+			String query = prop.getProperty("createNewUser");
+			query=query.replaceAll("varmail", nuevoUsuario.getCorreo());
+			query=query.replaceAll("varpass", nuevoUsuario.getContrasena());
+			query=query.replaceAll("varname", nuevoUsuario.getNombre());
+			query=query.replaceAll("varuser", nuevoUsuario.getNombreUsuario());
+			query=query.replaceAll("varrol", nuevoUsuario.getRol());
+			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.S"); 
+			String formattedDateTime = nuevoUsuario.getRegisterTime().format(formatter);
+			formattedDateTime = formattedDateTime.substring(0, formattedDateTime.length()-1);
+			formattedDateTime = formattedDateTime + "0"; 
+			query = query.replaceAll("varfecharegistro", formattedDateTime);
+			query = query.replaceAll("varultimaconex", formattedDateTime);
+			
+			Statement stmt = connection.createStatement();
+			stmt.executeUpdate(query);
+			dbConnection.closeConnection();
+		} catch (Exception Excep){
+			System.err.println(Excep);
+			Excep.printStackTrace();
+		}
+	}
+	public ArrayList<UsuarioDTO> selectByRol(String tipoUsuario){
+		ArrayList<UsuarioDTO> users = new ArrayList<UsuarioDTO>();
+		DBConexion dbConnection = new DBConexion(this.url, this.usuario, this.contrasena);
+		Connection connection = dbConnection.getConnection();
+		try(InputStream input = new FileInputStream(RutaSQL)){
+			Properties prop = new Properties();
+			prop.load(input);
+			String query = prop.getProperty("selectByRol");
+			query = query.replace("varrol", tipoUsuario);
+			Statement stmt = connection.createStatement();
+			ResultSet rs = (ResultSet) stmt.executeQuery(query);
+			
+			while (rs.next()) {
+				String nombre = rs.getString("nombre");
+				String correo = rs.getString("mail");
+				String nombreUsuario = rs.getString("nombreUsuario");
+				users.add(new UsuarioDTO(nombre, correo,nombreUsuario));
+			}
+
+			if (stmt != null){ 
+				stmt.close(); 
+			}
+
+			dbConnection.closeConnection();
+		} catch (Exception Excep){
+			System.err.println(Excep);
+			Excep.printStackTrace();
+		}
+		return users;
+	}
+
+	
+	public String requestCredenciales(String mail) {
+		String password = null;
+		DBConexion dbConnection = new DBConexion(this.url, this.usuario, this.contrasena);
+		Connection connection = dbConnection.getConnection();
+		try(InputStream input = new FileInputStream(RutaSQL)){
+			Properties prop = new Properties();
+			prop.load(input);
+			String query = prop.getProperty("selectPass");
+			query=query.replaceAll("varmail", mail);
+			
+			Statement stmt = connection.createStatement();
+			ResultSet rs = (ResultSet) stmt.executeQuery(query);
+			if(rs.next())
+			{
+			password = rs.getString("password");
+			}
+			if (stmt != null){ 
+				stmt.close(); 
+			}
+			dbConnection.closeConnection();
+		} catch (Exception Excep){
+			System.err.println(Excep);
+			Excep.printStackTrace();
+		}
+		
+		return password;
+	}
+	
+	public void deleteUser(String mail) {
+		DBConexion dbConnection = new DBConexion(this.url, this.usuario, this.contrasena);
+		Connection connection = dbConnection.getConnection();
+		try(InputStream input = new FileInputStream(RutaSQL)){
+			Properties prop = new Properties();
+			prop.load(input);
+			String query = prop.getProperty("deleteUser");
+			query=query.replaceAll("varmail", mail);
+			
+			Statement stmt = connection.createStatement();
+			stmt.executeUpdate(query);
+			dbConnection.closeConnection();
+		} catch (Exception Excep){
+			System.err.println(Excep);
+			Excep.printStackTrace();
+		}
+	}
+	
+	public void updateUser(UsuarioDTO updateUser) {
+		DBConexion dbConnection = new DBConexion(this.url, this.usuario, this.contrasena);
+		Connection connection = dbConnection.getConnection();
+		try(InputStream input = new FileInputStream(RutaSQL)){
+			Properties prop = new Properties();
+			prop.load(input);
+			String query = prop.getProperty("updateUser");
+			query=query.replaceAll("varmail", updateUser.getCorreo());
+			query=query.replaceAll("varpass", updateUser.getContrasena());
+			query=query.replaceAll("varname", updateUser.getNombre());
+			query=query.replaceAll("varuser", updateUser.getNombreUsuario());
+			
+			Statement stmt = connection.createStatement();
+			stmt.executeUpdate(query);
+			dbConnection.closeConnection();
+		} catch (Exception Excep){
+			System.err.println(Excep);
+			Excep.printStackTrace();
+		}
+	}
+	
+	public UsuarioDTO requestUser(String correo) {
+		UsuarioDTO userRequest = new UsuarioDTO();
+		
+		DBConexion dbConnection = new DBConexion(this.url, this.usuario, this.contrasena);
+		Connection connection = dbConnection.getConnection();
+		try(InputStream input = new FileInputStream(RutaSQL)){
+			Properties prop = new Properties();
+			prop.load(input);
+			String query = prop.getProperty("selectDataUserMail");
+			query=query.replaceAll("varmail", correo);
+			
+			Statement stmt = connection.createStatement();
+			ResultSet rs = (ResultSet) stmt.executeQuery(query);
+			
+			if(rs.next())
+			{
+				String nombre = rs.getString("nombre");
+				String mail = rs.getString("mail");
+				String nombreUsuario = rs.getString("nombreUsuario");
+				String tipoUsuario = rs.getString("tipoUsuario");
+				
+				userRequest.setMail(mail);
+				userRequest.setName(nombre);
+				userRequest.setUsername(nombreUsuario);
+				userRequest.setRol(tipoUsuario);
+			}
+			if (stmt != null){ 
+				stmt.close(); 
+			}
+			dbConnection.closeConnection();
+		} catch (Exception Excep){
+			System.err.println(Excep);
+			Excep.printStackTrace();
+		}
+		
+		return userRequest;
+	}
+	
+	public UsuarioDTO solicitarUsuarioPorNombreUsuario(String userName) {
+		UsuarioDTO userRequest = new UsuarioDTO();
+		
+		DBConexion dbConnection = new DBConexion(this.url, this.usuario, this.contrasena);
+		Connection connection = dbConnection.getConnection();
+		try(InputStream input = new FileInputStream(RutaSQL)){
+			Properties prop = new Properties();
+			prop.load(input);
+			String query = prop.getProperty("selectDataUserName");
+			query=query.replaceAll("varuser", userName);
+			
+			Statement stmt = connection.createStatement();
+			ResultSet rs = (ResultSet) stmt.executeQuery(query);
+			
+			String nombre = rs.getString("nombre");
+			String mail = rs.getString("mail");
+			String nombreUsuario = rs.getString("nombreUsuario");
+			String tipoUsuario = rs.getString("tipoUsuario");
+			
+			userRequest.setMail(mail);
+			userRequest.setName(nombre);
+			userRequest.setUsername(nombreUsuario);
+			userRequest.setRol(tipoUsuario);
+			
+			if (stmt != null){ 
+				stmt.close(); 
+			}
+			dbConnection.closeConnection();
+		} catch (Exception Excep){
+			System.err.println(Excep);
+			Excep.printStackTrace();
+		}
+		return userRequest;
+	}
+	
+	
+	public ArrayList<UsuarioDTO> requestUsers(){
+		ArrayList<UsuarioDTO> listUsers = new ArrayList<UsuarioDTO>();
+		
+		DBConexion dbConnection = new DBConexion(this.url, this.usuario, this.contrasena);
+		Connection connection = dbConnection.getConnection();
+		try(InputStream input = new FileInputStream(RutaSQL)){
+			Properties prop = new Properties();
+			prop.load(input);
+			String query = prop.getProperty("selectAllUsers");
+			
+			Statement stmt = connection.createStatement();
+			ResultSet rs = (ResultSet) stmt.executeQuery(query);
+			
+			while (rs.next()) {
+				String nombre = rs.getString("nombre");
+				String correo = rs.getString("mail");
+				String nombreUsuario = rs.getString("nombreUsuario");
+				String tipoUsuario = rs.getString("tipoUsuario");
+				//LocaLDateTime regTime = rs.getString("regTime");
+				listUsers.add(new UsuarioDTO(nombre, correo,nombreUsuario,tipoUsuario));
+			}
+
+			if (stmt != null){ 
+				stmt.close(); 
+			}
+
+			dbConnection.closeConnection();
+		} catch (Exception Excep){
+			System.err.println(Excep);
+			Excep.printStackTrace();
+		}
+		return listUsers;
+	}
+}

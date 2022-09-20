@@ -1,0 +1,5 @@
+package ConexDB;
+
+public class DBConexion {
+
+}

@@ -1,0 +1,49 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<jsp:useBean  id="customerJavaBean" scope="session" class="JavaBean.CustomerJavaBean"></jsp:useBean>
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Registro</title>
+	</head>
+	<body>
+	<%
+		String PaginaSiguiente = "../Controlador/registerController.jsp";
+		String MensajePagSig = request.getParameter("message");
+		if (MensajePagSig == null) MensajePagSig = "";
+
+		if (customerJavaBean != null && !customerJavaBean.getCorreo().equals("")) {
+			
+			PaginaSiguiente = "../../Index/index.jsp";
+		} else {
+			%>
+			<h3>Registro Usuario</h3>
+			<form method="post" action="../Controlador/registerController.jsp">
+				<label for="nombre">Nombre: </label>
+				<input type="text" name="nombre" value="nombre"><br/>
+				
+				<label for="correo">Correo: </label>
+				<input type="text" name="correo" value="nombreusuario@correo.com"><br/>
+				
+				<label for="nombreusuario">NombreUsuario: </label>
+				<input type="text" name="nombreusuario" value="nombreusuario"><br/>
+				
+				<label for="contrasena">Contrasena: </label>
+				<input type="password" name="contrasena" value=""><br/>
+				
+				<label for="tipousuario">Tipo Usuario: </label><br/>
+				<select name="tipousuario">
+					<option value="Admin">Administrador</option>
+					<option value="User">Usuario</option>
+				</select>
+				
+				<br/>
+				<input type="submit" value="Registrar Usuario">
+			</form>
+			<%
+		}
+	%>
+	</body>
+</html>

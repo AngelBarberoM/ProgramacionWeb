@@ -1,0 +1,5 @@
+package GeneralDTO;
+
+public class UsuarioDTO {
+
+}

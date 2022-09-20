@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="Usuarios.FunUsuario"/>
+    <fullyQualifiedTypeName name="Espectaculos.Espectaculos"/>
+    <fullyQualifiedTypeName name="General_DTO.VotanteDTO"/>
+    <fullyQualifiedTypeName name="ConexDB.DBConexion"/>
+</qualifiedTypeNameHistroy>

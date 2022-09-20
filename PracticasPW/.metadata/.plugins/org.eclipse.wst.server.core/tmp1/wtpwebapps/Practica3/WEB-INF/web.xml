@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name>Practica3</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+  </welcome-file-list>
+  <context-param>
+    <param-name>properties</param-name>
+    <param-value>/Practica3/sql.properties</param-value>
+  </context-param>
+  <context-param>
+    <param-name>user</param-name>
+    <param-value>i82gocam</param-value>
+  </context-param>
+  <context-param> 
+    <param-name>url</param-name>
+    <param-value>jdbc:mysql://oraclepr.uco.es:3306/i82gocam</param-value>
+  </context-param>
+  <context-param> 
+    <param-name>password</param-name>
+    <param-value>pw1234</param-value>
+  </context-param>
+  <servlet>
+    <servlet-name>InicioSesionServlet</servlet-name>
+    <servlet-class>Servlets.InicioSesionServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>InicioSesionServlet</servlet-name>
+    <url-pattern>/InicioSesionServlet</url-pattern>
+  </servlet-mapping>
+    <servlet>
+    <servlet-name>RegistrarServlet</servlet-name>
+    <servlet-class>Servlets.RegistrarServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RegistrarServlet</servlet-name>
+    <url-pattern>/RegistrarServlet</url-pattern>
+  </servlet-mapping>
+
+ <servlet>
+    <servlet-name>AdminControlUsuarios</servlet-name>
+    <servlet-class>Servlets.AdminControlUsuarios</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AdminControlUsuarios</servlet-name>
+    <url-pattern>/AdminControlUsuarios</url-pattern>
+  </servlet-mapping>
+ 
+  <servlet>
+    <servlet-name>BuscarEspectaculosServlet</servlet-name>
+    <servlet-class>Servlets.BuscarEspectaculosServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>BuscarEspectaculosServlet</servlet-name>
+    <url-pattern>/BuscarEspectaculosServlet</url-pattern>
+  </servlet-mapping>
+ 
+   <servlet>
+    <servlet-name>CerrarSesionServlet</servlet-name>
+    <servlet-class>Servlets.CerrarSesionServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CerrarSesionServlet</servlet-name>
+    <url-pattern>/CerrarSesionServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>AnadirFechaMultiple</servlet-name>
+    <servlet-class>Servlets.AnadirFechaMultiple</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AnadirFechaMultiple</servlet-name>
+    <url-pattern>/AnadirFechaMultiple</url-pattern>
+  </servlet-mapping>
+ 
+ <servlet>
+    <servlet-name>AnadirPasesTemporada</servlet-name>
+    <servlet-class>Servlets.AnadirPasesTemporada</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AnadirPasesTemporada</servlet-name>
+    <url-pattern>/AnadirPasesTemporada</url-pattern>
+  </servlet-mapping>
+ 
+ <servlet>
+    <servlet-name>EliminarCriticaServlet</servlet-name>
+    <servlet-class>Servlets.EliminarCriticaServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EliminarCriticaServlet</servlet-name>
+    <url-pattern>/EliminarCriticaServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>EliminarFechaEspectaculoPaseMultiple</servlet-name>
+    <servlet-class>Servlets.EliminarFechaEspectaculoPaseMultiple</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EliminarFechaEspectaculoPaseMultiple</servlet-name>
+    <url-pattern>/EliminarFechaEspectaculoPaseMultiple</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>EliminarPaseMultiple</servlet-name>
+    <servlet-class>Servlets.EliminarPaseMultiple</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EliminarPaseMultiple</servlet-name>
+    <url-pattern>/EliminarPaseMultiple</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>NuevoEspectaculoPuntualServlet</servlet-name>
+    <servlet-class>Servlets.NuevoEspectaculoPuntualServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>NuevoEspectaculoPuntualServlet</servlet-name>
+    <url-pattern>/NuevoEspectaculoPuntualServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>NuevoEspectaculoPaseMultipleServlet</servlet-name>
+    <servlet-class>Servlets.NuevoEspectaculoPaseMultipleServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>NuevoEspectaculoPaseMultipleServlet</servlet-name>
+    <url-pattern>/NuevoEspectaculoPaseMultipleServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>NuevoEspectaculoTemporadaServlet</servlet-name>
+    <servlet-class>Servlets.NuevoEspectaculoTemporadaServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>NuevoEspectaculoTemporadaServlet</servlet-name>
+    <url-pattern>/NuevoEspectaculoTemporadaServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>EliminarUsuarioServlet</servlet-name>
+    <servlet-class>Servlets.EliminarUsuarioServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EliminarUsuarioServlet</servlet-name>
+    <url-pattern>/EliminarUsuarioServlet</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+    <servlet-name>DislikeCriticaServlet</servlet-name>
+    <servlet-class>Servlets.DislikeCriticaServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DislikeCriticaServlet</servlet-name>
+    <url-pattern>/DislikeCriticaServlet</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+    <servlet-name>LikeCriticaServlet</servlet-name>
+    <servlet-class>Servlets.LikeCriticaServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LikeCriticaServlet</servlet-name>
+    <url-pattern>/LikeCriticaServlet</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+    <servlet-name>ModificarFechaMultiple</servlet-name>
+    <servlet-class>Servlets.ModificarFechaMultiple</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ModificarFechaMultiple</servlet-name>
+    <url-pattern>/ModificarFechaMultiple</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+    <servlet-name>ModificarPasesMultiple</servlet-name>
+    <servlet-class>Servlets.ModificarPasesMultiple</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ModificarPasesMultiple</servlet-name>
+    <url-pattern>/ModificarPasesMultiple</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+    <servlet-name>ModificarDatosUsuarioServlet</servlet-name>
+    <servlet-class>Servlets.ModificarDatosUsuarioServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ModificarDatosUsuarioServlet</servlet-name>
+    <url-pattern>/ModificarDatosUsuarioServlet</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+    <servlet-name>NuevaCriticaServlet</servlet-name>
+    <servlet-class>Servlets.NuevaCriticaServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>NuevaCriticaServlet</servlet-name>
+    <url-pattern>/NuevaCriticaServlet</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+    <servlet-name>BuscarCriticaServlet</servlet-name>
+    <servlet-class>Servlets.BuscarCriticaServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>BuscarCriticaServlet</servlet-name>
+    <url-pattern>/BuscarCriticaServlet</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+    <servlet-name>DatosUsuarioServlet</servlet-name>
+    <servlet-class>Servlets.DatosUsuarioServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DatosUsuarioServlet</servlet-name>
+    <url-pattern>/DatosUsuarioServlet</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+    <servlet-name>BuscarEspectaculosPuntualServlet</servlet-name>
+    <servlet-class>Servlets.BuscarEspectaculosPuntualServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>BuscarEspectaculosPuntualServlet</servlet-name>
+    <url-pattern>/BuscarEspectaculosPuntualServlet</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+    <servlet-name>BuscarEspectaculosPaseMultipleServlet</servlet-name>
+    <servlet-class>Servlets.BuscarEspectaculosPaseMultipleServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>BuscarEspectaculosPaseMultipleServlet</servlet-name>
+    <url-pattern>/BuscarEspectaculosPaseMultipleServlet</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+    <servlet-name>BuscarEspectaculosTemporadaServlet</servlet-name>
+    <servlet-class>Servlets.BuscarEspectaculosTemporadaServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>BuscarEspectaculosTemporadaServlet</servlet-name>
+    <url-pattern>/BuscarEspectaculosTemporadaServlet</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+    <servlet-name>CrearEspectaculoServlet</servlet-name>
+    <servlet-class>Servlets.CrearEspectaculoServlet</servlet-class>
+  </servlet>
+   <servlet-mapping>
+    <servlet-name>CrearEspectaculoServlet</servlet-name>
+    <url-pattern>/CrearEspectaculoServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>GetMultiplesTemporadasServlet</servlet-name>
+    <servlet-class>Servlets.GetMultiplesTemporadasServlet</servlet-class>
+  </servlet>
+   <servlet-mapping>
+    <servlet-name>GetMultiplesTemporadasServlet</servlet-name>
+    <url-pattern>/GetMultiplesTemporadasServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>GetTodosEspectaculos</servlet-name>
+    <servlet-class>Servlets.GetTodosEspectaculos</servlet-class>
+  </servlet>
+   <servlet-mapping>
+    <servlet-name>GetTodosEspectaculos</servlet-name>
+    <url-pattern>/GetTodosEspectaculos</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>ModificarDiaSemana</servlet-name>
+    <servlet-class>Servlets.ModificarDiaSemana</servlet-class>
+  </servlet>
+   <servlet-mapping>
+    <servlet-name>ModificarDiaSemana</servlet-name>
+    <url-pattern>/ModificarDiaSemana</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>ModificarInicioFechaServlet</servlet-name>
+    <servlet-class>Servlets.ModificarInicioFechaServlet</servlet-class>
+  </servlet>
+   <servlet-mapping>
+    <servlet-name>ModificarInicioFechaServlet</servlet-name>
+    <url-pattern>/ModificarInicioFechaServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>ModificarFinalFechaServlet</servlet-name>
+    <servlet-class>Servlets.ModificarFinalFechaServlet</servlet-class>
+  </servlet>
+   <servlet-mapping>
+    <servlet-name>ModificarFinalFechaServlet</servlet-name>
+    <url-pattern>/ModificarFinalFechaServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>ModificarFechaPuntualServlet</servlet-name>
+    <servlet-class>Servlets.ModificarFechaPuntualServlet</servlet-class>
+  </servlet>
+   <servlet-mapping>
+    <servlet-name>ModificarFechaPuntualServlet</servlet-name>
+    <url-pattern>/ModificarFechaPuntualServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>GetMultiplesTemporadaEliminarServlet</servlet-name>
+    <servlet-class>Servlets.GetMultiplesTemporadaEliminarServlet</servlet-class>
+  </servlet>
+   <servlet-mapping>
+    <servlet-name>GetMultiplesTemporadaEliminarServlet</servlet-name>
+    <url-pattern>/GetMultiplesTemporadaEliminarServlet</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+    <servlet-name>EliminarPaseEspectaculoTemporada</servlet-name>
+    <servlet-class>Servlets.EliminarPaseEspectaculoTemporada</servlet-class>
+  </servlet>
+   <servlet-mapping>
+    <servlet-name>EliminarPaseEspectaculoTemporada</servlet-name>
+    <url-pattern>/EliminarPaseEspectaculoTemporada</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>GetTodosEspectaculosRealizadosServlet</servlet-name>
+    <servlet-class>Servlets.GetTodosEspectaculosRealizadosServlet</servlet-class>
+  </servlet>
+   <servlet-mapping>
+    <servlet-name>GetTodosEspectaculosRealizadosServlet</servlet-name>
+    <url-pattern>/GetTodosEspectaculosRealizadosServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>GetTodasCriticasServlet</servlet-name>
+    <servlet-class>Servlets.GetTodasCriticasServlet</servlet-class>
+  </servlet>
+   <servlet-mapping>
+    <servlet-name>GetTodasCriticasServlet</servlet-name>
+    <url-pattern>/GetTodasCriticasServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>EliminarEspectaculo</servlet-name>
+    <servlet-class>Servlets.EliminarEspectaculo</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EliminarEspectaculo</servlet-name>
+    <url-pattern>/EliminarEspectaculo</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+    <servlet-name>GetTodoParaEliminar</servlet-name>
+    <servlet-class>Servlets.GetTodoParaEliminar</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GetTodoParaEliminar</servlet-name>
+    <url-pattern>/GetTodoParaEliminar</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+    <servlet-name>BuscarTodosEspectaculosUsuario</servlet-name>
+    <servlet-class>Servlets.BuscarTodosEspectaculosUsuario</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>BuscarTodosEspectaculosUsuario</servlet-name>
+    <url-pattern>/BuscarTodosEspectaculosUsuario</url-pattern>
+  </servlet-mapping>
+ 
+  <filter>  
+<filter-name>f1</filter-name>  
+<filter-class>Servlets.AdminAutenticacionServlet</filter-class>  
+</filter>  
+<filter-mapping>
+    <filter-name>f1</filter-name>
+    <url-pattern>/*</url-pattern>
+</filter-mapping>
+<session-config>
+        <session-timeout>5</session-timeout>
+</session-config>
+</web-app>

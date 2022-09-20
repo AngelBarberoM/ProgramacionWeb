@@ -1,0 +1,13 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ page isErrorPage="true" %>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>ERROR USUARIO!! </title>
+    </head>
+    <body>
+        <h4>Error, el correo introducido ya ha sido registrado con anterioridad</h4>
+    </body>
+</html>
